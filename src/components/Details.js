@@ -49,7 +49,7 @@ export default class extends Component {
                     </p>
                     <p className="text-muted lead">{info}</p>
                     <div>
-                        <Link to="/">
+                        <Link to="/store">
                         <ButtonContainer>back to our shop</ButtonContainer>
                         </Link>
                         <ButtonContainer 
