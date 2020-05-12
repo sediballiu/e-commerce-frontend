@@ -41,7 +41,7 @@ export default class Login extends Component {
                 .then(res => {
                     console.log(res);
                     if(res.data.message === "Logged in"){
-                        this.props.history.push('/store')
+                        this.props.history.push('/dashboard')
                     }else if(res.data === "WRONG PASSWORD!"){
                         alert("Wrong password, please try again!")
                     }

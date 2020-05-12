@@ -13,9 +13,13 @@ export default class ProductList extends Component {
                 <div className="row">
                 <ProductConsumer>
                     {(value) => {
-                        return value.products.map(product => {
+                        if(this.props.productsToShow){
+                        return value.products.slice(0,this.props.productsToShow).map(product => {
                             return <Product product={product} key={product.id} />
-                        })
+                        })}else{
+                            return value.products.map(product => {
+                            return <Product product={product} key={product.id} />
+                        })}
                     }}
                 </ProductConsumer>
                 </div>

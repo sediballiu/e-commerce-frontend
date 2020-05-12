@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {storeProducts, detailProduct} from "./data"
+import instance from "./instance"
 
 const ProductContext = React.createContext(); 
 
@@ -17,12 +18,16 @@ class ProductProvider extends Component {
 
     setProducts = () => {
         let tempProducts = [];
-        storeProducts.forEach(item => {
-            const singleItem = {...item};
-            tempProducts = [...tempProducts, singleItem];
-        })
-        this.setState(() => {
-            return {products: tempProducts}
+        instance.get('/products')
+        .then(res => {
+            // to make the development easier, use storeProducts instead of res.data
+            storeProducts.forEach(item => {
+                const singleItem = {...item};
+                tempProducts = [...tempProducts, singleItem];
+            })
+            this.setState(() => {
+                return {products: tempProducts}
+            })
         })
     }
 

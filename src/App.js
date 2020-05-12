@@ -9,6 +9,7 @@ import Details from "./components/Details"
 import Cart from "./components/Cart"
 import Modal from "./components/Modal"
 import Login from "./components/Login"
+import Dashboard from './components/Dashboard/Dashboard'
 import Default from "./components/Default"
 
 class App extends Component{
@@ -22,6 +23,7 @@ class App extends Component{
           <Route path="/details" component={Details} />
           <Route path="/cart" component={Cart} />
           <Route path="/login" component={Login} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route component={Default} />
         </Switch>
         <Modal />
