@@ -21,9 +21,11 @@ class ProductProvider extends Component {
         instance.get('/products')
         .then(res => {
             // to make the development easier, use storeProducts instead of res.data
-            storeProducts.forEach(item => {
-                const singleItem = {...item};
-                tempProducts = [...tempProducts, singleItem];
+            res.data.forEach(item => {
+                if(item.leftInStock > 0){
+                    const singleItem = {...item};
+                    tempProducts = [...tempProducts, singleItem];
+                }
             })
             this.setState(() => {
                 return {products: tempProducts}
